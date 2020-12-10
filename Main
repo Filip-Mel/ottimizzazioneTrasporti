@@ -7,7 +7,9 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         	<link rel="stylesheet" type="text/css" href="style.css">
 		<script>
+		
 		$(document).ready(function(){
+		// Cookies
 		    localStorage.setItem("cookieSeen","shown");
 		    $(".cookie-banner").delay(100).fadeIn();
 		    $(".cookie-banner").click(function () {
@@ -183,8 +185,7 @@
 		</p>
 
 		<p>
-			<div id="esito_finale"></div>
-		// Cookies	
+			<div id="esito_finale"></div>	
 		</p>
 		  <div class="cookie-banner" style="display: none;">
 		<p>
