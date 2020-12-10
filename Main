@@ -1,4 +1,194 @@
-//Scrivere qua il main del codice
-//DEVID è PASSATO DA QUI
-//ORTIZ è PASSATO DA QUI
-//CUCCU è PASSATO DA QUI
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Crea la tua casella di posta!</title>
+		<script>
+		function verifica()
+		{
+			var esito_finale="",riassunto="";
+			// Recupero i dati presenti nella form
+			var nome=document.getElementById("nome").value;
+			var cognome=document.getElementById("cognome").value;
+			var femmina=document.getElementById("femmina").checked;
+			var maschio=document.getElementById("maschio").checked;
+			var fascia_eta=document.getElementById("fascia").value;
+			var pubblicita=document.getElementById("interesse1").checked;
+			var newsletter=document.getElementById("interesse2").checked;
+			var offerte=document.getElementById("interesse3").checked;
+			var username=document.getElementById("username").value;
+			var dom1=document.getElementById("dom1").checked;
+			var dom2=document.getElementById("dom2").checked;
+			var dom3=document.getElementById("dom3").checked;
+			var pass1=document.getElementById("password1").value;
+			var pass2=document.getElementById("password2").value;
+			var autorizza=document.getElementById("autorizza1").checked;
+			// Test dei campi "Nome" e "Cognome"
+			if(nome=="")
+				esito_finale+="<p>- Nome mancante!</p>";
+			else
+				riassunto+="<p>Nome: "+nome+"</p>";
+			if(cognome=="")
+				esito_finale+="<p>- Cognome mancante!</p>"
+			else
+				riassunto+="<p>Cognome: "+cognome+"</p>";
+			// Sesso
+			riassunto+="<p>Sesso: "
+			if(femmina)
+				riassunto+"Femminile";
+			else
+				if(maschio)
+					riassunto+="Maschile";
+				else
+					riassunto+="non specificato";
+			riassunto+="</p>";
+			// Fascia d'età
+			switch(fascia_eta)
+			{
+				case "0":riassunto+="<p>Età: non specificata!</p>";break;
+				case "1":riassunto+="<p>Età: minore di 30 anni</p>";break;
+				case "2":riassunto+="<p>Età: compresa tra 31 e 50 anni (estremi inclusi)</p>";break;
+				case "3":riassunto+="<p>Età: maggiore di 50 anni</p>";break;
+			}
+			// Interessato a...
+			riassunto+="<p>Interessato a ricevere: ";
+			if(!pubblicita&&!newsletter&&!offerte)
+				riassunto+="nessuna comunicazione";
+			else
+				{
+					if(pubblicita)
+						riassunto+="Pubblicità  ";
+					if(newsletter)
+						riassunto+="Newsletter  ";
+					if(offerte)
+						riassunto+="Offerte  ";
+				}
+			riassunto+="</p>";
+			// Username
+			if(username.length<5)
+				esito_finale+="<p>- Username non valido!</p>"
+			else
+				riassunto+="<p>Username: "+username+"</p>";
+			// Dominio
+			riassunto+="<p>Dominio: ";
+			if(!dom1&&!dom2&&!dom3)
+				esito_finale+="- Dominio: non specificato!";
+			else
+				{
+					if(dom1)
+						riassunto+="itismarconi.it";
+					if(dom2)
+						riassunto+="informatica.net";
+					if(dom3)
+						riassunto+="sit.marconi.org";
+				}
+			riassunto+="</p>";
+			// Password
+			if(pass1=="")
+				esito_finale+="<p>- Password non specificata!</p>"
+			else
+				if(pass1.length<8)
+					esito_finale+="<p>- Password troppo corta!</p>"
+				else
+					if(pass1!=pass2)
+						esito_finale+="<p>- Le due password non coincidono!</p>"
+					else
+						riassunto+="<p>Password: "+pass1+"</p>";
+			// Autorizzazione al trattamento dei dati
+			if(!autorizza)
+				esito_finale+='<p>- Selezionare "Autorizzo al trattamento delle informazioni"!</p>'
+
+
+			if(esito_finale!="")
+				{
+				esito_finale="Esito della verifica:<p>"+esito_finale+"</p><p>Ricontrolla!</p>";
+				document.getElementById("esito_finale").innerHTML=esito_finale;
+				}
+			else
+				document.getElementById("esito_finale").innerHTML="<p>TUTTO OK!</p>"+riassunto;
+
+		}
+		function seleziona_interessi()
+		{
+			document.getElementById("interesse1").checked=true;
+			document.getElementById("interesse2").checked=true;
+			document.getElementById("interesse3").checked=true;
+		}
+		</script>
+	</head>
+
+	<body>
+
+		<h1>Crea la tua casella di posta!</h1>
+		<p>
+
+		<fieldset>
+		<legend align="center">Dati dell'utente</legend>
+		<p>
+		<label style="color:red;"> * Campi obbligatori</label>
+		</p>
+
+		<p>
+		<label>Nome* </label><input type="text" id="nome" />
+		</p>
+		<p>
+		<label>Cognome* </label><input type="text" id="cognome" />
+		</p>
+		<p>
+		<label>Sesso</label>
+		<label>F </label><input type="radio" name="sex" id="femmina" />
+		<label>M </label><input type="radio" name="sex" id="maschio" />
+		</p>
+		<p>
+		<label>Fascia età</label>
+		<select id="fascia">
+			<option value="0"> Selezionare
+			<option value="1"> <30
+			<option value="2"> 31-50
+			<option value="3"> >50
+		</select>
+		</p>
+		<p>
+		<label>Sono interessato a ricevere</label>
+		<label>Pubblicità</label><input type="checkbox" id="interesse1" />
+		<label>Newsletter</label><input type="checkbox" id="interesse2" />
+		<label>Offerte promozionali</label><input type="checkbox" id="interesse3" />
+		<label>Seleziona tutto</label><input type="checkbox" onclick="seleziona_interessi();" />
+		</p>
+
+		<fieldset>
+		<legend align=center>Dati della casella di posta</legend>
+		<label>Username* (minimo 5 caratteri) </label><input type="text" id="username"  />
+		<p>
+		<label>Dominio*</label>
+		<input type="radio" name="dominio" id="dom1" /><label>itismarconi.it</label>
+		<input type="radio" name="dominio" id="dom2" /><label>informatica.net</label>
+		<input type="radio" name="dominio" id="dom3" /><label>sit.marconi.org</label>
+		</p>
+		<p>
+		<label>Password (minimo 8 caratteri)* </label>
+		<input type="password" id="password1" />
+		</p>
+		<p>
+		<label>Ripeti la password* </label>
+		<input type="password" id="password2" />
+		</p>
+
+		<p>
+		<label>Autorizzo al trattamento delle informazioni* </label>
+		<label>Sì </label><input type="radio" name="autorizzazione" id="autorizza1" />
+		<label>No </label><input type="radio"checked  name="autorizzazione" id="autorizza2" />
+		</p>
+		</fieldset>
+
+		<p>
+		<input type="submit" value="INVIA" onclick="verifica();">
+		<input type="reset" value="ANNULLA i valori immessi">
+		</p>
+
+		<p>
+			<div id="esito_finale"></div>
+		</p>
+	</body>
+</html>
+
