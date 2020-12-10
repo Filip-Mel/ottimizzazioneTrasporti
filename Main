@@ -24,14 +24,11 @@
 			var pass2=document.getElementById("password2").value;
 			var autorizza=document.getElementById("autorizza1").checked;
 			// Test dei campi "Nome" e "Cognome"
-			if(nome=="")
-				esito_finale+="<p>- Nome mancante!</p>";
+			if(nome=="" || cognome=="")
+				esito_finale+="<p>- Nome e/o Cognome mancante!</p>";
 			else
-				riassunto+="<p>Nome: "+nome+"</p>";
-			if(cognome=="")
-				esito_finale+="<p>- Cognome mancante!</p>"
-			else
-				riassunto+="<p>Cognome: "+cognome+"</p>";
+				riassunto+="<p>Nome: "+nome+" Cognome: "+cognome+"</p>";
+				
 			// Sesso
 			riassunto+="<p>Sesso: "
 			if(femmina)
