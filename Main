@@ -12,6 +12,8 @@
 			var cognome=document.getElementById("cognome").value;
 			var femmina=document.getElementById("femmina").checked;
 			var maschio=document.getElementById("maschio").checked;
+			//Intorduciamo una variabile col operatore ternary per togliere il casino di if/else di dopo. 
+			var sesso = maschio ? "maschile": femmina ?"femminile":"non specificato";
 			var fascia_eta=document.getElementById("fascia").value;
 			var pubblicita=document.getElementById("interesse1").checked;
 			var newsletter=document.getElementById("interesse2").checked;
@@ -20,6 +22,8 @@
 			var dom1=document.getElementById("dom1").checked;
 			var dom2=document.getElementById("dom2").checked;
 			var dom3=document.getElementById("dom3").checked;
+			//Intorduciamo una variabile col operatore ternary per togliere il casino di if/else di dopo. 
+			var dom= dom1 ? "itismarconi.it" : dom2 ? "informatica.net" : dom3 ? "sit.marconi.org" : "- Dominio: non specificato!";
 			var pass1=document.getElementById("password1").value;
 			var pass2=document.getElementById("password2").value;
 			var autorizza=document.getElementById("autorizza1").checked;
@@ -33,15 +37,8 @@
 			else
 				riassunto+="<p>Cognome: "+cognome+"</p>";
 			// Sesso
-			riassunto+="<p>Sesso: "
-			if(femmina)
-				riassunto+"Femminile";
-			else
-				if(maschio)
-					riassunto+="Maschile";
-				else
-					riassunto+="non specificato";
-			riassunto+="</p>";
+			//Tolgo if and else e sostituisco tutto con un semplice (+ sesso)
+			riassunto+="<p>Sesso: " + sesso +"</p>";
 			// Fascia d'età
 			switch(fascia_eta)
 			{
@@ -70,19 +67,8 @@
 			else
 				riassunto+="<p>Username: "+username+"</p>";
 			// Dominio
-			riassunto+="<p>Dominio: ";
-			if(!dom1&&!dom2&&!dom3)
-				esito_finale+="- Dominio: non specificato!";
-			else
-				{
-					if(dom1)
-						riassunto+="itismarconi.it";
-					if(dom2)
-						riassunto+="informatica.net";
-					if(dom3)
-						riassunto+="sit.marconi.org";
-				}
-			riassunto+="</p>";
+			//Tolgo if and else e sostituisco tutto con un semplice (+ dom)
+			riassunto+="<p>Dominio: " + dom + "</p>";
 			// Password
 			if(pass1=="")
 				esito_finale+="<p>- Password non specificata!</p>"
