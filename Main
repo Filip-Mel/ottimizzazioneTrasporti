@@ -2,12 +2,13 @@
 <html>
 
 	<head>
-		<title>Crea la tua casella di posta!</title>
+		<title>Crea la tua casella di posta!</title>		
 		<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        	<link rel="stylesheet" type="text/css" href="style.css">
-		<script>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="style.css">
 		
+		<script>
 		$(document).ready(function(){
 		// Cookies
 		    localStorage.setItem("cookieSeen","shown");
@@ -16,6 +17,7 @@
 			    $(".cookie-banner").delay(100).fadeOut();
 		    });
 		});
+
 		function verifica()
 		{
 			var esito_finale="",riassunto="";
@@ -24,8 +26,6 @@
 			var cognome=document.getElementById("cognome").value;
 			var femmina=document.getElementById("femmina").checked;
 			var maschio=document.getElementById("maschio").checked;
-			//Intorduciamo una variabile col operatore ternary per togliere il casino di if/else di dopo. 
-			var sesso = maschio ? "maschile": femmina ?"femminile":"non specificato";
 			var fascia_eta=document.getElementById("fascia").value;
 			var pubblicita=document.getElementById("interesse1").checked;
 			var newsletter=document.getElementById("interesse2").checked;
@@ -34,8 +34,6 @@
 			var dom1=document.getElementById("dom1").checked;
 			var dom2=document.getElementById("dom2").checked;
 			var dom3=document.getElementById("dom3").checked;
-			//Intorduciamo una variabile col operatore ternary per togliere il casino di if/else di dopo. 
-			var dom= dom1 ? "itismarconi.it" : dom2 ? "informatica.net" : dom3 ? "sit.marconi.org" : "- Dominio: non specificato!";
 			var pass1=document.getElementById("password1").value;
 			var pass2=document.getElementById("password2").value;
 			var autorizza=document.getElementById("autorizza1").checked;
@@ -49,8 +47,15 @@
 			else
 				riassunto+="<p>Cognome: "+cognome+"</p>";
 			// Sesso
-			//Tolgo if and else e sostituisco tutto con un semplice (+ sesso)
-			riassunto+="<p>Sesso: " + sesso +"</p>";
+			riassunto+="<p>Sesso: "
+			if(femmina)
+				riassunto+"Femminile";
+			else
+				if(maschio)
+					riassunto+="Maschile";
+				else
+					riassunto+="non specificato";
+			riassunto+="</p>";
 			// Fascia d'età
 			switch(fascia_eta)
 			{
@@ -79,8 +84,19 @@
 			else
 				riassunto+="<p>Username: "+username+"</p>";
 			// Dominio
-			//Tolgo if and else e sostituisco tutto con un semplice (+ dom)
-			riassunto+="<p>Dominio: " + dom + "</p>";
+			riassunto+="<p>Dominio: ";
+			if(!dom1&&!dom2&&!dom3)
+				esito_finale+="- Dominio: non specificato!";
+			else
+				{
+					if(dom1)
+						riassunto+="itismarconi.it";
+					if(dom2)
+						riassunto+="informatica.net";
+					if(dom3)
+						riassunto+="sit.marconi.org";
+				}
+			riassunto+="</p>";
 			// Password
 			if(pass1=="")
 				esito_finale+="<p>- Password non specificata!</p>"
@@ -116,84 +132,99 @@
 	</head>
 
 	<body>
-
-		<h1>Crea la tua casella di posta!</h1>
-		<p>
-
-		<fieldset>
-		<legend align="center">Dati dell'utente</legend>
-		<p>
-		<label style="color:red;"> * Campi obbligatori</label>
-		</p>
-
-		<p>
-		<label>Nome* </label><input type="text" id="nome" />
-		</p>
-		<p>
-		<label>Cognome* </label><input type="text" id="cognome" />
-		</p>
-		<p>
-		<label>Sesso</label>
-		<label>F </label><input type="radio" name="sex" id="femmina" />
-		<label>M </label><input type="radio" name="sex" id="maschio" />
-		</p>
-		<p>
-		<label>Fascia età</label>
-		<select id="fascia">
-			<option value="0"> Selezionare
-			<option value="1"> <30
-			<option value="2"> 31-50
-			<option value="3"> >50
-		</select>
-		</p>
-		<p>
-		<label>Sono interessato a ricevere</label>
-		<label>Pubblicità</label><input type="checkbox" id="interesse1" />
-		<label>Newsletter</label><input type="checkbox" id="interesse2" />
-		<label>Offerte promozionali</label><input type="checkbox" id="interesse3" />
-		<label>Seleziona tutto</label><input type="checkbox" onclick="seleziona_interessi();" />
-		</p>
-
-		<fieldset>
-		<legend align=center>Dati della casella di posta</legend>
-		<label>Username* (minimo 5 caratteri) </label><input type="text" id="username"  />
-		<p>
-		<label>Dominio*</label>
-		<input type="radio" name="dominio" id="dom1" /><label>itismarconi.it</label>
-		<input type="radio" name="dominio" id="dom2" /><label>informatica.net</label>
-		<input type="radio" name="dominio" id="dom3" /><label>sit.marconi.org</label>
-		</p>
-		<p>
-		<label>Password (minimo 8 caratteri)* </label>
-		<input type="password" id="password1" />
-		</p>
-		<p>
-		<label>Ripeti la password* </label>
-		<input type="password" id="password2" />
-		</p>
-
-		<p>
-		<label>Autorizzo al trattamento delle informazioni* </label>
-		<label>Sì </label><input type="radio" name="autorizzazione" id="autorizza1" />
-		<label>No </label><input type="radio"checked  name="autorizzazione" id="autorizza2" />
-		</p>
-		</fieldset>
-
-		<p>
-		<input type="submit" value="INVIA" onclick="verifica();">
-		<input type="reset" value="ANNULLA i valori immessi">
-		</p>
-
-		<p>
-			<div id="esito_finale"></div>	
-		</p>
-		  <div class="cookie-banner" style="display: none;">
-		<p>
-		By using our website, you agree to our 
-		<a href="insert-link">cookie policy</a>
-		</p>
-		<button class="close">&times;</button>
+		
+		<div class="form_gruppo">
+			<label class="form_label-titolo">Crea la tua casella di posta!</label>
 		</div>
+		
+
+		<main>	
+			<fieldset>
+				<legend align="center" class="form_label">Dati dell'utente</legend>
+				<p>
+					<label class="form_label-obbligatorio"> *Campi obbligatori</label>
+				</p>
+
+				<p>
+					<label class="form_label">Nome* </label>
+					<input type="text" class="form_input" id="nome" />
+				</p>
+
+				<p>
+					<label class="form_label">Cognome* </label>
+					<input type="text" class="form_input" id="cognome" />
+				</p>
+
+				<p>
+					<label class="form_label">Sesso</label>
+					<label class="form_label">F </label><input type="radio" name="sex" id="femmina" />
+					<label class="form_label">M </label><input type="radio" name="sex" id="maschio" />
+				</p>
+
+				<p>
+					<label class="form_label">Fascia età</label>
+					<select id="fascia" class="form_input">
+						<option value="0"> Selezionare
+						<option value="1"> <30
+						<option value="2"> 31-50
+						<option value="3"> >50
+					</select>
+				</p>
+
+				<p>
+					<label class="form_label">Sono interessato a ricevere</label><br>
+					<label class="form_label">Pubblicità</label><input type="checkbox" id="interesse1" />
+					<label class="form_label">Newsletter</label><input type="checkbox" id="interesse2" />
+					<label class="form_label">Offerte promozionali</label><input type="checkbox" id="interesse3" />
+					<label class="form_label">Seleziona tutto</label><input type="checkbox" onclick="seleziona_interessi();" />
+				</p>
+			</fieldset>
+
+			<fieldset>
+				<legend align="center" class="form_label">Dati della casella di posta</legend>
+				<label class="form_label">Username* (minimo 5 caratteri) </label>
+				<input type="text" class="form_input" id="username"/>
+
+				<p>
+					<label class="form_label">Dominio*</label>
+					<input type="radio" name="dominio" id="dom1" /><label class="form_label">itismarconi.it</label>
+					<input type="radio" name="dominio" id="dom2" /><label class="form_label">informatica.net</label>
+					<input type="radio" name="dominio" id="dom3" /><label class="form_label">sit.marconi.org</label>
+				</p>
+
+				<p>
+					<label class="form_label">Password (minimo 8 caratteri)* </label>
+					<input type="password" class="form_input" id="password1" />
+				</p>
+
+				<p>
+					<label class="form_label">Ripeti la password* </label>
+					<input type="password" class="form_input" id="password2" />
+				</p>
+
+				<p>
+					<label class="form_label">Autorizzo al trattamento delle informazioni* </label>
+					<label class="form_label">Sì </label><input type="radio" name="autorizzazione" id="autorizza1" />
+					<label class="form_label">No </label><input type="radio"checked  name="autorizzazione" id="autorizza2" />
+				</p>
+			</fieldset>
+
+			<p class="form_gruppo-btn">
+				<input type="submit" class="form_btn" value="INVIA" onclick="verifica();">
+				<input type="reset" class="form_btn" value="ANNULLA">
+			</p>
+
+			<p>
+				<div id="esito_finale"></div>
+			</p>
+
+			<div class="cookie-banner" style="display: none;">
+				<p>
+					By using our website, you agree to our
+					<a href="insert-link">cookie policy</a>
+				</p>
+				<button class="close">&times;</button>
+			</div>
+		</main>
 	</body>
 </html>
-
