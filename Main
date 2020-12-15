@@ -119,7 +119,7 @@
 				document.getElementById("esito_finale").innerHTML=esito_finale;
 				}
 			else
-				document.getElementById("esito_finale").innerHTML="<p>TUTTO OK!</p>"+riassunto;
+				document.getElementById("esito_finale").innerHTML="<p style='background-color: green'>TUTTO OK!</p>"+riassunto;
 
 		}
 		function seleziona_interessi()
