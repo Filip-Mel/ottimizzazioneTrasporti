@@ -191,6 +191,19 @@
 				</p>	
 				
 				<p>
+					<label class = "form label">  Professione  </label>
+					<select id = "professione" class = "form_input">
+						<option value = "seleziona"> Seleziona </option>
+						<option value = "studente"> studente </option>
+						<option value = "insegnante"> insegnante </option>
+						<option value = "dirigente"> dirigente </option>	
+						<option value = "operaio"> operaio  </option>
+						<option value = "impiegato"> impiegato </option>
+						<option value= "imprenditore"> imprenditore </option>
+                                       </select>
+                                </p>
+
+				<p>
 					<label class="form_label">Sono interessato a ricevere</label><br>
 					<label class="form_label">Pubblicità</label><input type="checkbox" id="interesse1" />
 					<label class="form_label">Newsletter</label><input type="checkbox" id="interesse2" />
