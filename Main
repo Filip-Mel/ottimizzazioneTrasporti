@@ -165,14 +165,14 @@
 					<label class="form_label">Fascia età</label>
 					<select id="fascia" class="form_input">
 						<option value="0"> Selezionare
-						<option value="1"> <30
+						<option value="1"> 18-30
 						<option value="2"> 31-50
-						<option value="3">  >50
+						<option value="3"> 50-70
 					</select>
                                 </p>
 				
 				<p>
-					<label class = "form label"> Residenza </label>					
+					<label class = "form_label"> Residenza </label>					
 					<select id = "residenza" class = "form_input">
 						<option value = "Seleziona"> Seleziona una provincia </option>			
 						<option value = "Bergamo"> Bergamo </option>
@@ -191,7 +191,7 @@
 				</p>	
 				
 				<p>
-					<label class = "form label">  Professione  </label>
+					<label class = "form_label">  Professione  </label>
 					<select id = "professione" class = "form_input">
 						<option value = "seleziona"> Seleziona </option>
 						<option value = "studente"> studente </option>
