@@ -4,7 +4,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: red;   
+    background: grey; /*Il rosso copre la scritta "Campi obbligatori"*/
 }
 
 main {
