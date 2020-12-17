@@ -167,10 +167,29 @@
 						<option value="0"> Selezionare
 						<option value="1"> <30
 						<option value="2"> 31-50
-						<option value="3"> >50
+						<option value="3">  >50
 					</select>
-				</p>
-
+                                </p>
+				
+				<p>
+					<label class = "form label"> Residenza </label>					
+					<select id = "residenza" class = "form_input">
+						<option value = "Seleziona"> Seleziona una provincia </option>			
+						<option value = "Bergamo"> Bergamo </option>
+						<option value = "Brescia"> Brescia </option>	
+						<option value = "Como"> Como </option>
+						<option value = "Cremona"> Cremona </option>
+						<option value = "Lecco"> Lecco </option>
+						<option value = "Lodi"> Lodi </option>
+						<option value = "Mantova"> Mantova </option>				
+						<option value = "Milano"> Milano </option>
+						<option value = "Monza e della Brianza"> Monza e della Brianza </option>				
+						<option value = "Pavia"> Pavia </option>
+						<option value = "Sondrio"> Sondrio </option>
+						<option value = "Varese"> Varese </option>
+					</select>
+				</p>	
+				
 				<p>
 					<label class="form_label">Sono interessato a ricevere</label><br>
 					<label class="form_label">Pubblicità</label><input type="checkbox" id="interesse1" />
