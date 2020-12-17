@@ -159,12 +159,12 @@
 
 				<p>
 					<label class="form_label">Nome* </label>
-					<input type="text" class="form_input" id="nome" />
+					<input style="background-color: yellow;" type="text" class="form_input" id="nome" />
 				</p>
 
 				<p>
 					<label class="form_label">Cognome* </label>
-					<input type="text" class="form_input" id="cognome" />
+					<input style="background-color: yellow;" type="text" class="form_input" id="cognome" />
 				</p>
 
 				<p>
@@ -328,7 +328,7 @@
 			<form id="campi1">
 				<legend align="center" class="form_label">Dati della casella di posta</legend>
 				<label class="form_label">Username* (minimo 5 caratteri) </label>
-				<input type="text" class="form_input" id="username"/>
+				<input style="background-color: yellow;" type="text" class="form_input" id="username"/>
 
 				<p>
 					<label class="form_label">Dominio*</label>
@@ -339,12 +339,12 @@
 
 				<p>
 					<label class="form_label">Password (minimo 8 caratteri)* </label>
-					<input type="password" class="form_input" id="password1" />
+					<input style="background-color: yellow;" type="password" class="form_input" id="password1" />
 				</p>
 
 				<p>
 					<label class="form_label">Ripeti la password* </label>
-					<input type="password" class="form_input" id="password2" />
+					<input style="background-color: yellow;" type="password" class="form_input" id="password2" />
 				</p>
 
 				<p>
