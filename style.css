@@ -4,7 +4,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: red;
+    background: red;   
 }
 
 main {
@@ -26,12 +26,12 @@ option{
 
 .form_label-titolo{
     text-align: center;
-    font-size: 30px;
+    font-size: 40px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .form_label-obbligatorio{
-    color: red;
+    color: rgb(255, 30, 0);
 }
 
 .form_input{
