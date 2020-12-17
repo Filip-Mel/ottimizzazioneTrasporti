@@ -17,7 +17,9 @@
 			    $(".cookie-banner").delay(100).fadeOut();
 		    });
 		});
-
+		function metti_cursore(){
+			document.getElementById("nome").focus();
+		}
 		function verifica()
 		{
 			var esito_finale="",riassunto="";
@@ -140,7 +142,7 @@
          </script>
 	</head>
 
-	<body>
+	<body onload="metti_cursore();">
 		
 		<div class="form_gruppo">
 			<label class="form_label-titolo">Crea la tua casella di posta!</label>
