@@ -81,7 +81,7 @@
 				case "Asti":riassunto+="<p>Residenza: Asti</p>";break;
 				case "Avellino": riassunto + = "<p> Residenza: Avellino </p>"; break;
                 		case "Bari": riassunto + = "<p> Residenza: Bari </p>"; break;			
-				case "Barletta-Andria-Trani + = "<p> Residenza: Barletta-Andria-Trani </p>"; break;
+				case "Barletta-Andria-Trani": riassunto + = "<p> Residenza: Barletta-Andria-Trani </p>"; break;
 				case "Belluno":riassunto+="<p>Residenza: Belluno</p>";break;
 				case "Benevento":riassunto+="<p>Residenza: Benevento</p>";break;
 				case "Bergamo":riassunto+="<p>Residenza: Bergamo</p>";break;
