@@ -485,7 +485,7 @@
 
 			<p class="form_gruppo-btn">
 				<input type="submit" class="form_btn" value="INVIA" onclick="verifica();">
-				<input type="button" class="form_btn" value="ANNULLA" onclick=elimina()>
+				<input type="button" class="form_btn" value="ANNULLA" onclick= "elimina();">
 			</p>
 
 			<p>
