@@ -315,7 +315,7 @@
 					<label class="form_label">Residenza</label>	
 					<select id= "residenza" class = "form_input">
 						//Aggiunte tutte le provincie
-						<option value = "Seleziona "> Seleziona una provincia </option>
+						<option value = "Seleziona"> Seleziona una provincia </option>
 						<option value = "Agrigento"> Agrigento </option>
                         			<option value="Alessandria">Alessandria</option>
                         			<option value="Ancona">Ancona</option>
