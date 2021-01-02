@@ -312,7 +312,7 @@
                                 </p>
 
 				<p>
-					<label class = "form label"> Residenza </label>					
+					<label class="form_label">Residenza</label>	
 					<select id= "residenza" class = "form_input">
 						//Aggiunte tutte le provincie
 						<option value = "Seleziona "> Seleziona una provincia </option>
